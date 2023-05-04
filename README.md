@@ -63,15 +63,23 @@ I have a better understanding about css and how to position elements in the view
 }
 ```
 
-Besides, I learned to use jquery validator to control what users enter, through a regular expression to try to match in the input text.
+Besides, I learned to use jquery validator to control what users enter, through a regular expression to try to match in the input text. For example, the method below controls the input of only letters.
 
 ```js
   $.validator.addMethod("justLetters", function (value, element) {
       return this.optional(element) || /^[a-z\s.A-Z]+$/i.test(value);
   }, "Wrong format, letters only");
+  
+```
+
+Or controls the input of only numbers.
+
+```js
+oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
 ```
 
 ### Useful resources
 
 - [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions] - This helped me understand how regular expressions are structured and how to condition strings.
-- [https://www.regextester.com] - This website helped me practice the conditions for creating regular expressions.
+- [https://www.regextester.com] - This website helped me to practice the conditions for creating regular expressions.
+- [https://www.techiedelight.com/restrict-html-input-text-box-to-allow-only-numeric-values/] - This website helped me to restrict the user to enter only numeric values.
